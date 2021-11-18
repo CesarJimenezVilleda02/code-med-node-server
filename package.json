@@ -1,0 +1,21 @@
+{
+    "name": "code-med-server",
+    "version": "1.0.0",
+    "description": "An express server that connects to firebase",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start:dev": "nodemon server.js",
+        "start:prod": "NODE_ENV=production nodemon server.js"
+    },
+    "author": "Pablo César Jiménez Villeda",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "morgan": "^1.10.0"
+    },
+    "engines": {
+        "node": "v14.17.5"
+    }
+}
