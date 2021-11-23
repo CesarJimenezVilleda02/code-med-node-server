@@ -34,12 +34,13 @@ exports.postContainer = (req, res) => {
     };
 
     // añadimos el contenedor con push para que tenga un id único
-    containersRef.push(newContainer);
+    const generatedKey = containersRef.push(newContainer).key;
 
     // ya creado devolvemos una respuesta exitosa
     res.status(200).json({
         status: 'success',
         message: 'The container was added successfully',
+        id: generatedKey,
     });
 };
 
