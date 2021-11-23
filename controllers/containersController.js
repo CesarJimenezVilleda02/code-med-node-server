@@ -29,7 +29,7 @@ exports.getAllContainers = (req, res) => {
 exports.postContainer = (req, res) => {
     // Creamos el contenedor con los datos del request
     const newContainer = {
-        ...req,
+        ...req.body,
         inicio: Date.now(),
     };
 
@@ -71,11 +71,12 @@ exports.getContainerInfo = async (req, res) => {
 // Se usa para subir una fecha
 exports.postRead = (req, res) => {
     // añadimos nueva lectura al contenedor
+    console.log(req.body);
     containersRef
         .child(req.params.id)
         .child('lecturas')
         .push({
-            ...req,
+            ...req.body,
             fecha: Date.now(),
         });
     res.status(200).json({
