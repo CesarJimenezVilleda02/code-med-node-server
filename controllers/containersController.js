@@ -71,7 +71,7 @@ exports.getContainerInfo = async (req, res) => {
 // Se usa para subir una fecha
 exports.postRead = (req, res) => {
     // añadimos nueva lectura al contenedor
-    console.log(req.body);
+    console.log(req);
     containersRef
         .child(req.params.id)
         .child('lecturas')
