@@ -1,10 +1,17 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Rosario';
 }
 
 body {
     height: 100vh;
+}
+
+h1 {
+    font-size: 20px;
+    text-align: center;
+    color: ghostwhite;
 }
 
 .header {
@@ -21,8 +28,7 @@ body {
     }
 }
 
-
-.body {
+.homepage {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -31,15 +37,17 @@ body {
     .fondo {
         width: 70%;
         height: 100%;
-        background-image: url("../img/hospital.png");
+        background-image: url('../img/hospital.png');
         background-position: cover;
         background-size: cover;
     }
 
     .cuestionario {
-        background-color: #00317B;
+        background-color: #00317b;
         height: 100%;
         width: 30%;
     }
+}
 
+.reads {
 }
