@@ -1,25 +1,10 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Rosario';
 }
 
 body {
     height: 100vh;
-}
-
-label{
-	cursor: pointer;
-	color: ghostwhite;
-	padding: 10px;
-	margin: 3px;
-}
-
-h1 {
-    margin-bottom: 40px;
-    font-size: 20px;
-    text-align: center;
-    color: ghostwhite;
 }
 
 .header {
@@ -36,7 +21,8 @@ h1 {
     }
 }
 
-.homepage {
+
+.body {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -45,23 +31,15 @@ h1 {
     .fondo {
         width: 70%;
         height: 100%;
-        background-image: url('../img/hospital.png');
+        background-image: url("../img/hospital.png");
         background-position: cover;
         background-size: cover;
     }
 
     .cuestionario {
-        background-color: #00317b;
+        background-color: #00317B;
         height: 100%;
         width: 30%;
     }
-}
 
-.reads {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 80%;
-    width: 100%;
-    background-color: #29fd16;
 }
