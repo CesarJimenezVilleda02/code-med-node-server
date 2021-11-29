@@ -1,26 +1,173 @@
+.btn, .btn:link, .btn:visited {
+  text-decoration: none;
+  padding: 10px 40px;
+  display: inline-block;
+  border-radius: 10rem;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  position: relative;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover::after {
+  -webkit-transform: scaleX(1.4) scaleY(1.6);
+          transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn:active, .btn:focus {
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+}
+
+.btn::after {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.btn--white {
+  background-color: #fff;
+  color: #777;
+}
+
+.btn--white::after {
+  background-color: #fff;
+}
+
+.btn--green {
+  background-color: #55c57a;
+  color: #fff;
+}
+
+.btn--green::after {
+  background-color: #55c57a;
+}
+
+.btn--animated {
+  -webkit-animation: moveInBottom 0.5s ease-out 0.75s;
+          animation: moveInBottom 0.5s ease-out 0.75s;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+}
+
+.btn-text:link, .btn-text:visited {
+  font-size: 20px;
+  color: #55c57a;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid #55c57a;
+  padding: 3px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.btn-text:hover {
+  background-color: #55c57a;
+  color: #fff;
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  -webkit-transform: translateY(-4px);
+          transform: translateY(-4px);
+}
+
+.btn-text:active {
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+
+.destinos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-direction: row !important;
+          flex-direction: row !important;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 90%;
+  margin-top: 40px;
+}
+
+.destinos .hospital_nombre {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 70px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.destinos .hospital_nombre img {
+  width: 50px;
+}
+
+.destinos .carretera {
+  width: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.destinos .carretera .camino {
+  background: black;
+  width: 70vw;
+  height: 30px;
+  border-radius: 30px;
+}
+
+.destinos .carretera img {
+  position: absolute;
+  bottom: 25px;
+}
+
 * {
   margin: 0;
   padding: 0;
   font-family: 'Rosario';
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
   height: 100vh;
-}
-
-label {
-  cursor: pointer;
-  color: ghostwhite;
-  padding: 10px;
-  margin: 3px;
-}
-
-h1 {
-  margin-bottom: 40px;
-  font-size: 20px;
-  text-align: center;
-  color: ghostwhite;
-  position: absolute;
 }
 
 .header {
@@ -74,7 +221,62 @@ h1 {
   width: 30%;
 }
 
-.reads {
+.homepage .cuestionario form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 40vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.homepage .cuestionario form label {
+  text-align: center;
+  display: block;
+  cursor: pointer;
+  color: ghostwhite;
+  padding: 10px;
+  margin: 3px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 22px;
+  /* identical to box height */
+  letter-spacing: 0.3em;
+}
+
+.homepage .cuestionario form input {
+  margin-top: 20px;
+  background: #ffffff;
+  border-radius: 30px;
+  padding: 10px 5vw;
+  margin-bottom: 2vh;
+  border: none;
+  -webkit-transition: all ease-out 0.3s;
+  transition: all ease-out 0.3s;
+}
+
+.homepage .cuestionario form input:focus, .homepage .cuestionario form input:active {
+  border: none;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+.homepage .cuestionario form button {
+  margin-top: 20px;
+}
+
+.grafica {
+  height: 50vh;
+  width: 900px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -82,11 +284,51 @@ h1 {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.grafica .lectura {
+  width: 60px !important;
+  background-color: #f2ff5c;
+  margin-left: 4px;
+  border-radius: 10px;
+}
+
+.reads {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px 0px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   height: 80%;
   width: 100%;
-  background-color: #10C900;
+  background-color: #10c900;
+  color: blanchedalmond;
+  letter-spacing: 0.3em;
+  text-align: center;
+}
+
+.reads h1 {
+  font-weight: 700;
+  font-size: 48px;
+  margin-top: 20px;
+}
+
+.reads h3 {
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  margin-top: 10px;
 }
 /*# sourceMappingURL=main.css.map */

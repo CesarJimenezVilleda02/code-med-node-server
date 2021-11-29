@@ -6,7 +6,7 @@ dotenv.config({ path: './config.env' });
 // requerir el código va a ir después porque primero queremos tener bien definidas las variables
 const app = require(`${__dirname}/app.js`);
 
-// detrás de escenas heroku le va a dar uno
+// detrás de escenas heroku le va a dar un puerto
 const port = process.env.PORT || 3000;
 // iniciamos el servidor - puerto en el que va a salir
 app.listen(port, () => {

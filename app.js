@@ -11,10 +11,13 @@ if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
 app.use(express.json());
-// para pasar archivos
+// Cuando se accede a un archivo al usar este middleware definimos que el
+// archivo a retornar se encuentra en el directorio public desde el directorio
+// actual
 app.use(express.static(`${__dirname}/public`));
 
 // USING ROUTERS
+// Usamos el middleware containersRouters cuando se accede a la extendiín /api/contenedores/
 app.use('/api/contenedores/', containersRouter);
 
 module.exports = app;

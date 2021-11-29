@@ -1,26 +1,18 @@
+@import './variables';
+
+@import './button';
+
+@import './carro';
+
 * {
     margin: 0;
     padding: 0;
     font-family: 'Rosario';
+    box-sizing: border-box;
 }
 
 body {
     height: 100vh;
-}
-
-label{
-	cursor: pointer;
-	color: ghostwhite;
-	padding: 10px;
-	margin: 3px;
-}
-
-h1 {
-    margin-bottom: 40px;
-    font-size: 20px;
-    text-align: center;
-    color: ghostwhite;
-    position: absolute;
 }
 
 .header {
@@ -55,14 +47,91 @@ h1 {
         background-color: #00317b;
         height: 100%;
         width: 30%;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            height: 40vh;
+            justify-content: center;
+            align-items: center;
+
+            label {
+                text-align: center;
+                display: block;
+                cursor: pointer;
+                color: ghostwhite;
+                padding: 10px;
+                margin: 3px;
+                font-style: normal;
+                font-weight: bold;
+                font-size: $default-font-size;
+                line-height: 22px;
+                /* identical to box height */
+
+                letter-spacing: 0.3em;
+            }
+
+            input {
+                margin-top: 20px;
+                background: #ffffff;
+                border-radius: 30px;
+                padding: 10px 5vw;
+                margin-bottom: 2vh;
+                border: none;
+                transition: all ease-out 0.3s;
+
+                &:focus,
+                &:active {
+                    border: none;
+                    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.5);
+                }
+            }
+
+            button {
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+.grafica {
+    height: 50vh;
+    width: 900px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    .lectura {
+        width: 60px !important;
+        // height: 60px;
+        background-color: #f2ff5c;
+        margin-left: 4px;
+        border-radius: 10px;
     }
 }
 
 .reads {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    padding: 20px 0px;
     align-items: center;
     height: 80%;
     width: 100%;
-    background-color: #10C900;
+    background-color: #10c900;
+    color: blanchedalmond;
+    letter-spacing: 0.3em;
+    text-align: center;
+
+    h1 {
+        font-weight: 700;
+        font-size: 48px;
+        margin-top: 20px;
+    }
+    h3 {
+        display: block;
+        width: 100%;
+        font-size: 15px;
+        margin-top: 10px;
+    }
 }

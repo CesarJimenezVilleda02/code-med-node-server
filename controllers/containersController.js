@@ -1,5 +1,4 @@
 const admin = require('firebase-admin');
-const { getFirestore } = require('firebase-admin/firestore');
 
 const credentials = require(`${__dirname}/med-code-iot-firebase-adminsdk-okkub-1a9094ffc2.json`);
 
