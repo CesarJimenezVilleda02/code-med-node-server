@@ -9,7 +9,7 @@ const findButton = document.getElementById('find-button')
 const graph = document.getElementById('grafica')
 const actual = document.getElementById('actual')
 const optima = document.getElementById('optima')
-const promedio = document.getElementById('promedio')
+const promedioH3 = document.getElementById('promedio')
 const contenido = document.getElementById('contenido')
 const tiempo = document.getElementById('tiempo')
 
@@ -22,6 +22,12 @@ let apiEndpoint = "https://code-med-iot.herokuapp.com/api/contenedores/";
 let reads = [];
 let id = "";
 let lastRead = [];
+let promedio;
+
+// Función de timeout
+const timeout = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 // FUNCTIONS
 const goToBeginning = () => {
@@ -47,10 +53,10 @@ const updateUI = (containerData) => {
     lastRead = reads[reads.length - 1];
 
     actual.innerHTML = "Temperatura actual: " + lastRead[1].temperatura + "C";
-
+    
     let date = new Date(lastRead[1].fecha).toLocaleString("es-MX", {timeZone: "CST"});
     tiempo.innerHTML = "Última actualización a las: " + date;
-
+    
     let sum = 0;
     reads.forEach(([key, read]) => {
         let currentRead = document.createElement('div')
@@ -59,12 +65,41 @@ const updateUI = (containerData) => {
         grafica.appendChild(currentRead)
         sum += read.temperatura;
     });
-    let average = sum / reads.length;
+    promedio = sum / reads.length;
     
-    promedio.innerHTML = "El promedio de temperatura es de: " + average.toFixed(2) + "C";
+    promedioH3.innerHTML = "El promedio de temperatura es de: " + promedio.toFixed(2) + "C";
 }
-const updateLastRead = () => {}
-const getLastRead = async () => {}
+const updateLastRead = ([read]) => {
+    const [id, data] = read;
+    if(id === lastRead[0]) return;
+    
+    promedio = ((promedio * reads.length) + data.temperatura) / (reads.length + 1);
+    reads.push([id, data])
+    lastRead = [id, data];
+    
+    promedioH3.innerHTML = "El promedio de temperatura es de: " + promedio.toFixed(2) + "C";
+    let date = new Date(lastRead[1].fecha).toLocaleString("es-MX", {timeZone: "CST"});
+    tiempo.innerHTML = "Última actualización a las: " + date;
+    actual.innerHTML = "Temperatura actual: " + lastRead[1].temperatura + "C";
+    
+    let currentRead = document.createElement('div')
+    currentRead.classList.add('lectura')
+    currentRead.style.height = (data.temperatura * 2.5) + "px";
+    grafica.appendChild(currentRead);
+
+    return;
+}
+const getLastRead = async () => {
+    let endpointDirection = apiEndpoint + id + "/lastRead";
+
+    const resRead = await fetch(endpointDirection);
+    const readData = await resRead.json();
+
+    updateLastRead(Object.entries(readData.data));
+
+    await timeout(3000);
+    getLastRead();
+}
 const getContainer = async (event) => {
     event.preventDefault();
     id = input.value;
@@ -76,6 +111,7 @@ const getContainer = async (event) => {
     goToCharts();
 
     updateUI(dataContainer.data);
+    getLastRead();
 }
 
 // EVENT LISTENERS
