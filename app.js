@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 // archivo a retornar se encuentra en el directorio public desde el directorio
 // actual
 app.use(express.static(`${__dirname}/public`));
+app.use(cors);
 
 // USING ROUTERS
 // Usamos el middleware containersRouters cuando se accede a la extendiín /api/contenedores/
