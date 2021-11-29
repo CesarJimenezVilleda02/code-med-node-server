@@ -15,29 +15,23 @@
     </head>
     <body>
         <div class="header">
-            <img src="./img/logo.png" alt="logo de code-med-iot" />
+            <img id="logo" src="./img/logo.png" alt="logo de code-med-iot" />
         </div>
-        <div class="homepage">
+        <div class="homepage" id="homepage">
             <div class="cuestionario">
                 <form>
                     <label>Ingresa la clave del contenedor</label>
-                    <input type="text" placeholder="Inserte el código del contenedor" />
-                    <button type="submit" name="button" class="btn btn--white">
+                    <input id="input" type="text" placeholder="Código..." required/>
+                    <button id="find-button" type="submit" name="button" class="btn btn--white">
                         Buscar
                     </button>
                 </form>
             </div>
             <div class="fondo"></div>
         </div>
-        <div class="reads">
+        <div class="reads" id="charts">
             <h1>Temperatura actual: 2C</h1>
-            <div class="grafica">
-                <div class="lectura"></div>
-                <div class="lectura"></div>
-                <div class="lectura"></div>
-                <div class="lectura"></div>
-                <div class="lectura"></div>
-                <div class="lectura"></div>
+            <div id="grafica" class="grafica">
             </div>
             <h3>Temperatura óptima: 2C</h3>
             <h3>Temperatura promedio: 2C</h3>
@@ -66,5 +60,6 @@
                 </div>
             </div>
         </div>
+        <script src="./functions.js"></script>
     </body>
 </html>

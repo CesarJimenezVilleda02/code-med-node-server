@@ -191,6 +191,7 @@ body {
 
 .header img {
   width: 35%;
+  cursor: pointer;
 }
 
 .homepage {
