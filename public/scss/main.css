@@ -275,9 +275,14 @@ body {
   margin-top: 20px;
 }
 
-.grafica {
-  height: 50vh;
-  width: 900px;
+.scrollable {
+  width: 1050px;
+  height: 180px;
+  overflow-x: scroll;
+}
+
+.scrollable .grafica {
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -288,16 +293,64 @@ body {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  overflow: hidden;
 }
 
-.grafica .lectura {
-  width: 60px !important;
-  background-color: #f2ff5c;
-  margin-left: 4px;
+.scrollable .grafica .lecturaContenedor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 100%;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+
+.scrollable .grafica .lecturaContenedor p {
+  color: transparent;
+  -webkit-transition: all ease-out 0.5s;
+  transition: all ease-out 0.5s;
+}
+
+.scrollable .grafica .lecturaContenedor:hover p {
+  display: block;
+  color: #ffffff;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.scrollable .grafica .lecturaContenedor .lectura {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  min-width: 70px !important;
+  background-color: #ffd900;
   border-radius: 10px;
+  margin-left: 2px;
 }
 
 .reads {

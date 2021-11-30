@@ -95,19 +95,55 @@ body {
     }
 }
 
-.grafica {
-    height: 50vh;
-    width: 900px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: flex-end;
+.scrollable {
+    width: 1050px;
+    height: 180px;
+    overflow-x: scroll;
+    
 
-    .lectura {
-        width: 60px !important;
-        background-color: #f2ff5c;
-        margin-left: 4px;
-        border-radius: 10px;
+    .grafica {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        width: min-content;
+        justify-content: flex-end;
+        overflow: hidden;
+
+        .lecturaContenedor {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-end;
+            height: 100%;
+            width: min-content;
+
+            p {
+                color: transparent;
+                transition: all ease-out 0.5s;
+            }
+
+            &:hover {
+                p {
+                    display: block;
+                    color: #ffffff;
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+            }
+
+            .lectura {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                min-width: 70px !important;
+                background-color: #ffd900;
+                border-radius: 10px;
+                margin-left: 2px;
+            }
+        }
+    
     }
 }
 

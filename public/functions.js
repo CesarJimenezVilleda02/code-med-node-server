@@ -31,8 +31,13 @@ const timeout = (ms) => {
 }
 
 // FUNCTIONS
+const goToLeft = () => {
+    let objDiv = document.getElementById("scrollable");
+    objDiv.scrollLeft = objDiv.scrollWidth;
+}
 const goToBeginning = () => {
     charts.style.display ="none";
+    charts.style.backgroundColor="#f2ff5c"
     form.style.display = "";
     onCharts = false;
     reads = [];
@@ -63,10 +68,20 @@ const updateUI = (containerData) => {
     
     let sum = 0;
     reads.forEach(([key, read]) => {
+        let containerRead = document.createElement('div')
         let currentRead = document.createElement('div')
+        let currentTemperatureP = document.createElement('p')
+
+        
+        currentTemperatureP.innerHTML = read.temperatura + "C"
+        containerRead.appendChild(currentTemperatureP)
+        
         currentRead.classList.add('lectura')
         currentRead.style.height = (read.temperatura * 3.5) + "px";
-        grafica.appendChild(currentRead)
+        containerRead.appendChild(currentRead)
+
+        containerRead.classList.add('lecturaContenedor')
+        grafica.appendChild(containerRead)
         sum += read.temperatura;
     });
     promedio = sum / reads.length;
@@ -76,6 +91,8 @@ const updateUI = (containerData) => {
     if(lastRead[1].temperatura > temperaturaOptima) {
         charts.style.backgroundColor = "#C93000";
     }
+
+    goToLeft();
 }
 const updateLastRead = ([read]) => {
     const [id, data] = read;
@@ -91,15 +108,26 @@ const updateLastRead = ([read]) => {
     actual.innerHTML = "Temperatura actual: " + lastRead[1].temperatura + "C";
     
     let currentRead = document.createElement('div')
-    currentRead.classList.add('lectura')
-    currentRead.style.height = (data.temperatura * 3.5) + "px";
-    grafica.appendChild(currentRead);
+    let currentTemperatureP = document.createElement('p')
+    let containerRead = document.createElement('div')
+    
+   currentTemperatureP.innerHTML = read.temperatura + "C"
+   containerRead.appendChild(currentTemperatureP)
+
+   currentRead.classList.add('lectura')
+   currentRead.style.height = (data.temperatura * 3.5) + "px";
+   containerRead.appendChild(currentRead);
+
+   containerRead.classList.add('lecturaContenedor')
+   grafica.appendChild(containerRead)
 
     if(lastRead[1].temperatura > temperaturaOptima) {
         charts.style.backgroundColor = "#C93000";
     } else {
         charts.style.backgroundColor = "#10C900";
     }
+
+    goToLeft();
 
     return;
 }
