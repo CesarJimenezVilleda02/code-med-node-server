@@ -8,7 +8,7 @@ const findButton = document.getElementById('find-button')
 
 const graph = document.getElementById('grafica')
 const actual = document.getElementById('actual')
-const optima = document.getElementById('optima')
+const optimaH3 = document.getElementById('optima')
 const promedioH3 = document.getElementById('promedio')
 const contenido = document.getElementById('contenido')
 const tiempo = document.getElementById('tiempo')
@@ -23,6 +23,7 @@ let reads = [];
 let id = "";
 let lastRead = [];
 let promedio;
+let temperaturaOptima = 0;
 
 // Función de timeout
 const timeout = (ms) => {
@@ -36,6 +37,8 @@ const goToBeginning = () => {
     onCharts = false;
     reads = [];
     id = "";
+    graph.innerHTML = " ";
+    optima = 0;
 }
 const goToCharts = () => {
     charts.style.display = "";
@@ -44,7 +47,8 @@ const goToCharts = () => {
     
 }
 const updateUI = (containerData) => {
-    optima.innerHTML = "Temperatura óptima: " + containerData.temperaturaOptima + "C";
+    temperaturaOptima = containerData.temperaturaOptima;
+    optimaH3.innerHTML = "Temperatura óptima: " + containerData.temperaturaOptima + "C";
     contenido.innerHTML = "Contenido de la hielera: " + containerData.contenido;
     to.innerHTML = containerData.to;
     from.innerHTML = containerData.from;
@@ -61,13 +65,17 @@ const updateUI = (containerData) => {
     reads.forEach(([key, read]) => {
         let currentRead = document.createElement('div')
         currentRead.classList.add('lectura')
-        currentRead.style.height = (read.temperatura * 2.5) + "px";
+        currentRead.style.height = (read.temperatura * 3.5) + "px";
         grafica.appendChild(currentRead)
         sum += read.temperatura;
     });
     promedio = sum / reads.length;
     
     promedioH3.innerHTML = "El promedio de temperatura es de: " + promedio.toFixed(2) + "C";
+
+    if(lastRead[1].temperatura > temperaturaOptima) {
+        charts.style.backgroundColor = "#C93000";
+    }
 }
 const updateLastRead = ([read]) => {
     const [id, data] = read;
@@ -84,8 +92,14 @@ const updateLastRead = ([read]) => {
     
     let currentRead = document.createElement('div')
     currentRead.classList.add('lectura')
-    currentRead.style.height = (data.temperatura * 2.5) + "px";
+    currentRead.style.height = (data.temperatura * 3.5) + "px";
     grafica.appendChild(currentRead);
+
+    if(lastRead[1].temperatura > temperaturaOptima) {
+        charts.style.backgroundColor = "#C93000";
+    } else {
+        charts.style.backgroundColor = "#10C900";
+    }
 
     return;
 }
