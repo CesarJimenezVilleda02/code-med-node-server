@@ -1,3 +1,56 @@
+.code-med {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+    align-items: center;
+
+    img {
+        width: 50vw;
+    }
+
+    h1 {
+        margin-top: 5vh;
+        display: block;
+        text-align: center;
+        color: #FF0000;
+        font-size: 4rem;
+    }
+
+    p {
+        margin-top: 5vh;
+        display: block;
+        width: 80vw;
+        text-align: center;
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .informacionEmpresarial {
+        margin-top: 7vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 90vw;
+
+        .info {
+            width: 40vw;
+            display: block;
+            text-align: center;
+
+            h3 {
+                font-size: 40px;
+            }
+
+            p {
+                display: block;
+                width: 100%;
+                margin-top: 3vh;
+            }
+
+        }
+    }
+}
 .about {
     display: flex;
     flex-direction: column;

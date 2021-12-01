@@ -1,3 +1,70 @@
+.code-med {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 5vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.code-med img {
+  width: 50vw;
+}
+
+.code-med h1 {
+  margin-top: 5vh;
+  display: block;
+  text-align: center;
+  color: #FF0000;
+  font-size: 4rem;
+}
+
+.code-med p {
+  margin-top: 5vh;
+  display: block;
+  width: 80vw;
+  text-align: center;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.code-med .informacionEmpresarial {
+  margin-top: 7vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 90vw;
+}
+
+.code-med .informacionEmpresarial .info {
+  width: 40vw;
+  display: block;
+  text-align: center;
+}
+
+.code-med .informacionEmpresarial .info h3 {
+  font-size: 40px;
+}
+
+.code-med .informacionEmpresarial .info p {
+  display: block;
+  width: 100%;
+  margin-top: 3vh;
+}
+
 .about {
   display: -webkit-box;
   display: -ms-flexbox;
