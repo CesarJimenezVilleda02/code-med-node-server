@@ -1,0 +1,51 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        display: block;
+        width: 100%;
+        color: #FF0000;
+        font-size: 4rem;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .teamContainer {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-around;
+        width: 100%;
+
+        .teamMember {
+            width: 22.5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+            img {
+                margin-top: 30px;
+                width: 225px;
+                border-radius: 1000px;
+            }
+
+            .role {
+                color: #FF0000;
+                font-weight: 600;
+                font-size: 25px;
+            }
+
+            p {
+                margin-top: 10px;
+                text-align: center;
+                line-height: 24px;
+                margin-bottom: 40px;
+            }
+        }
+
+    }
+}

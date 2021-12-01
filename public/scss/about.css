@@ -1,0 +1,75 @@
+.about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about h1 {
+  display: block;
+  width: 100%;
+  color: #FF0000;
+  font-size: 4rem;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.about .teamContainer {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+}
+
+.about .teamContainer .teamMember {
+  width: 22.5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.about .teamContainer .teamMember img {
+  margin-top: 30px;
+  width: 225px;
+  border-radius: 1000px;
+}
+
+.about .teamContainer .teamMember .role {
+  color: #FF0000;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.about .teamContainer .teamMember p {
+  margin-top: 10px;
+  text-align: center;
+  line-height: 24px;
+  margin-bottom: 40px;
+}
+/*# sourceMappingURL=about.css.map */
