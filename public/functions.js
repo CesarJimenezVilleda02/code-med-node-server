@@ -146,17 +146,21 @@ const getLastRead = async () => {
     getLastRead();
 };
 const getContainer = async (event) => {
-    event.preventDefault();
-    id = input.value;
-    let endpointDirection = apiEndpoint + id;
+    try {
+        event.preventDefault();
+        id = input.value;
+        let endpointDirection = apiEndpoint + id;
 
-    const resContainer = await fetch(endpointDirection);
-    const dataContainer = await resContainer.json();
+        const resContainer = await fetch(endpointDirection);
+        const dataContainer = await resContainer.json();
 
-    goToCharts();
+        updateUI(dataContainer.data);
+        getLastRead();
 
-    updateUI(dataContainer.data);
-    getLastRead();
+        goToCharts();
+    } catch (e) {
+        alert('El contenedor ingresado no existe, intente de nuevo');
+    }
 };
 
 // EVENT LISTENERS
