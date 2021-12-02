@@ -89,6 +89,8 @@ const updateUI = (containerData) => {
 
     if (lastRead[1].temperatura > temperaturaOptima) {
         charts.style.backgroundColor = '#C93000';
+    } else {
+        charts.style.backgroundColor = '#10C900';
     }
 
     goToLeft();
@@ -96,7 +98,7 @@ const updateUI = (containerData) => {
 const updateLastRead = ([read]) => {
     const [id, data] = read;
     if (id === lastRead[0]) return;
-    console.log(id, ": ", read);
+    console.log(id, ': ', read);
 
     promedio = (promedio * reads.length + data.temperatura) / (reads.length + 1);
     reads.push([id, data]);
